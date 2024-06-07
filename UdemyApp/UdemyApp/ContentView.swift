@@ -10,10 +10,15 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            AsyncImage(url: URL(string: "https://avatars.githubusercontent.com/u/16520596?v=4")) { image in
+                image.resizable()
+            } placeholder: {
+                ProgressView {
+                    Text("Downloading...")
+                }
+            }
+            Text("Kiryl Kakareka")
+                .font(.title)
         }
         .padding()
     }
